@@ -1,0 +1,23 @@
+{% block body%}
+<title>Hello World!</title>  <!-- Set the title -->
+<body>
+<h2>This is a simple web app using Flask</h2>  <!-- Bigger text for top of page -->
+<br>
+<!-- Server info  -->
+<b>Server time:</b> {{ data['timestamp'] }} <br>
+<b>Server IP:</b> {{ data['ip_address'] }} <br>
+<b>Server hostname:</b> {{ data['hostname'] }} <br>
+<br>
+<!-- Request info -->
+<b>Request IP:</b> {{ data['remote_ip'] }} <br>
+<b>Request headers:</b> <br>
+<table> <!-- Start a table for the headers -->
+    <tr><td><i>Header Name</i></td><td><i>Value</i></td></tr> <!-- Table column headers -->
+    {% for header in data['header_keys'] %} <!-- Loop over the header keys -->
+        <tr><td>{{ header }}</td><td>{{ data['header_data'][header] }}</td></tr> <!-- Make a table row for each header -->
+    {% endfor %} <!-- Close the for loop -->
+</table> <!-- Close the table -->
+<br>
+<i>Thanks for visiting!!!</i>
+</body>
+{% endblock %}
