@@ -1,0 +1,9 @@
+WSGIDaemonProcess flaskapp threads=5
+WSGIScriptAlias / /opt/flask_demo/flask_demo.wsgi
+
+<Directory flaskapp>
+    WSGIProcessGroup flaskapp
+    WSGIApplicationGroup %{GLOBAL}
+    Order deny,allow
+    Allow from all
+</Directory>
